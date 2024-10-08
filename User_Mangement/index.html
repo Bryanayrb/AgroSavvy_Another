@@ -1,226 +1,198 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Account Settings</title>
-        <!-- Bootstrap CSS -->
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-        <style>
-            .profile {
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .profile-img-container {
-                position: relative;
-            }
-
-            #profilePic {
-                width: 150px;
-                height: 150px;
-                border-radius: 50%;
-                cursor: pointer;
-                object-fit: cover;
-            }
-
-            .plus-sign {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                font-size: 24px;
-                color: #ffffff;
-                background-color: #007bff;
-                border-radius: 50%;
-                width: 40px;
-                height: 40px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                font-weight: bold;
-                border: 2px solid #007bff;
-            }
-
-            .plus-sign:hover {
-                background-color: #0056b3;
-            }
-
-            #fileInput {
-                display: none;
-            }
-
-            .profile h2 {
-                margin: 15px 0 10px;
-                font-size: 1.8em;
-                font-weight: bold;
-            }
-
-            .profile p {
-                color: #888;
-                font-size: 1em;
-                margin-bottom: 20px;
-            }
-
-            .profile ul {
-                list-style-type: none;
-                padding: 0;
-            }
-
-            .profile ul li {
-                padding: 10px 0;
-                font-size: 0.9em;
-                color: #555;
-                border-bottom: 1px solid #ddd;
-            }
-
-            .update-btn {
-                display: inline-block;
-                padding: 12px 30px;
-                background-color: #007bff;
-                color: white;
-                border: none;
-                border-radius: 25px;
-                font-size: 1em;
-                font-weight: bold;
-                cursor: pointer;
-                box-shadow: 0 3px 10px rgba(0, 123, 255, 0.3);
-                transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-                margin-top: 20px;
-            }
-
-            .update-btn:hover {
-                background-color: #0056b3;
-                transform: translateY(-2px);
-                box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
-            }
-
-            .settings h3 {
-                margin-bottom: 50px;
-                font-size: 2em;
-                color: #333;
-                border-bottom: 2px solid #007bff;
-                display: inline-block;
-                padding-bottom: 5px;
-            }
-
-            .custom-rounded {
-                border-radius: 20px; /* 20px rounded corners */
-            }
-
-            .faded-profile-bg {
-                background-color: rgba(6, 206, 89, 0.2); /* Faded green background */
-            }
-
-
-        </style>
-    </head>
-    <body>
-        <div class="container faded-green-bg mt-5 p-8 custom-rounded">
-            <!-- Profile Section -->
-            <div class="row">
-                <div class="col-md-4 faded-profile-bg text-center py-4 ">
-                    <div class="profile">
-                        <div class="profile-img-container">
-                            <img id="profilePic" src="1.jpg" alt="Profile Picture" class="img-fluid">
-                            <div class="plus-sign" id="plusSign">+</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="icon" href="image/AgroSavvy_Logo.png" type="image/png" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .input-group-text {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="profile-card-4 z-depth-3">
+                    <div class="card">
+                        <div class="card-body text-center bg-primary rounded-top">
+                            <div class="user-box">
+                                <img src="image/AgroSavvy_Logo.png" alt="user avatar">
+                            </div>
+                            <h5 class="mb-1 text-white">AgroSavvy</h5>
+                            <h6 class="text-light">Department of Agriculture</h6>
                         </div>
-                        <input type="file" id="fileInput" accept="image/*">
-                        <h2>Username</h2>
-                        
-                    </div>
-                </div>
-
-                <!-- Account Settings Section -->
-                <div class="col-md-8">
-                    <div class="settings">
-                        <h3>Account Settings</h3>
-                        <form>
-                            <div class="form-group">
-                                <label for="username">Username</label>
-                                <input type="email" class="form-control" id="email" value="">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="firstName">First Name</label>
-                                <input type="text" class="form-control" id="firstName" value="">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="lastName">Last Name</label>
-                                <input type="text" class="form-control" id="lastName" value="">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" class="form-control" id="email" value="">
-                            </div>
-
-                            <!-- <button type="button" class="btn btn-primary update-btn">Update</button> -->
-                        </form>
-                        <br>
-                    </div>
-
-                    <div class="col-md-15">
-                        <div class="settings">
-                            <h3>Address</h3>
-                            <form>
-                                <div class="form-group">
-                                    <label for="username">Username</label>
-                                    <input type="email" class="form-control" id="email" value="">
-                                </div>
-        
-                                <div class="form-group">
-                                    <label for="firstName">First Name</label>
-                                    <input type="text" class="form-control" id="firstName" value="">
-                                </div>
-        
-                                <div class="form-group">
-                                    <label for="lastName">Last Name</label>
-                                    <input type="text" class="form-control" id="lastName" value="">
-                                </div>
-        
-                                <div class="form-group">
-                                    <label for="email">Email Address</label>
-                                    <input type="email" class="form-control" id="email" value="">
-                                </div>
-        
-                                <button type="button" class="btn btn-primary update-btn">Update</button>
-                            </form>
-                            <br>
+                        <div class="card-body">
+                            <ul class="list-group shadow-none">
+                                <li class="list-group-item">
+                                    <div class="list-icon">
+                                        <i class="fa fa-phone-square"></i>
+                                    </div>
+                                    <div class="list-details">
+                                        <span>9910XXXXXX</span>
+                                        <small>Mobile Number</small>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="list-icon">
+                                        <i class="fa fa-envelope"></i>
+                                    </div>
+                                    <div class="list-details">
+                                        <span>AgroSavvy@gmail.com</span>
+                                        <small>Email Address</small>
+                                    </div>
+                                </li>
+                            </ul>
+                       </div>
+                        <div class="card-footer text-center">
+                            <a href="javascript:void()" class="btn-social btn-facebook waves-effect waves-light m-1">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="javascript:void()" class="btn-social btn-google-plus waves-effect waves-light m-1">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                            <a href="javascript:void()" class="list-inline-item btn-social btn-behance waves-effect waves-light">
+                                <i class="fa fa-behance"></i>
+                            </a>
+                            <a href="javascript:void()" class="list-inline-item btn-social btn-dribbble waves-effect waves-light">
+                                <i class="fa fa-dribbble"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
-                
+            </div>
+            <div class="col-lg-8">
+                <div class="card z-depth-3">
+                    <div class="card-body">
+                        <ul class="nav nav-pills nav-pills-primary nav-justified">
+                            <li class="nav-item">
+                                <a href="javascript:void();" data-target="#profile" data-toggle="pill" class="nav-link active show">
+                                    <i class="icon-user"></i> <span class="hidden-xs">Profile</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#edit" data-target="#edit" data-toggle="pill" class="nav-link">
+                                    <i class="icon-note"></i> <span class="hidden-xs">Edit</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content p-3">
+                            <div class="tab-pane active show" id="profile">
+                                <h5 class="mb-3">User Profile</h5>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6>About</h6>
+                                        <p>AgroSavvy is a Web Application that can help our beloved farmers to
+                                            give them a great and wondeful recommendation using AgroSavvy.</p>
+                                        <h6>Hobbies</h6>
+                                        <p>Overthink HEHEHHE</p>
+                                        <h6>Details</h6>
+                                        <p>asdfghjklasdfghjksdfghjk</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane" id="edit">
+                                <form>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Change profile</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="file">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="text" value="Bryan">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="text" value="Racoma">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="email" value="bryanracoma0@gmail.com">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Change password</label>
+                                        <div class="col-lg-9">
+                                            <div class="input-group">
+                                                <input id="password" class="form-control" type="password" value="11111122333">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text" onclick="togglePassword('password', this)">
+                                                        <i class="material-icons">visibility</i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
+                                        <div class="col-lg-9">
+                                            <div class="input-group">
+                                                <input id="confirm-password" class="form-control" type="password" value="11111122333">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text" onclick="togglePassword('confirm-password', this)">
+                                                        <i class="material-icons">visibility</i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Address</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="text" value="address">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">City</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="text" value="City">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Country</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="text" value="Country">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label"></label>
+                                        <div class="col-lg-9">
+                                            <input type="reset" class="btn btn-secondary" value="Cancel">
+                                            <input type="button" class="btn btn-primary" value="Save Changes">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
 
-        <script>
-            const profilePic = document.getElementById('profilePic');
-            const plusSign = document.getElementById('plusSign');
-            const fileInput = document.getElementById('fileInput');
-
-            plusSign.addEventListener('click', () => {
-                fileInput.click();
-            });
-
-            fileInput.addEventListener('change', (event) => {
-                const file = event.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        profilePic.src = e.target.result;
-                    };
-                    reader.readAsDataURL(file);
-                }
-            });
-        </script>
-
-        <!-- Bootstrap JS and dependencies -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    </body>
-    </html>
+    <!-- Add Bootstrap JS and jQuery for tab functionality -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function togglePassword(id, icon) {
+            const passwordField = document.getElementById(id);
+            const isPassword = passwordField.type === "password";
+            passwordField.type = isPassword ? "text" : "password";
+            icon.innerHTML = isPassword ? '<i class="material-icons">visibility_off</i>' : '<i class="material-icons">visibility</i>';
+        }
+    </script>
